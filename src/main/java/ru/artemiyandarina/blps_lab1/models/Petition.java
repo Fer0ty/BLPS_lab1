@@ -19,10 +19,6 @@ public class Petition {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "creator_id", nullable = false, referencedColumnName = "id")
-    private User creator;
-
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp creationDate = new Timestamp(System.currentTimeMillis());
 

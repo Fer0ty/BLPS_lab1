@@ -64,7 +64,7 @@ public class PetitionController {
         petitionService.delete(id);
     }
 
-    @GetMapping("/{country}")
+    @GetMapping("country/{country}")
     public Set<PetitionRead> getByCountry(@PathVariable String country) {
         return petitionService.getByCountry(country);
     }

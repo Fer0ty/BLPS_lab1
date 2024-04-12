@@ -2,7 +2,7 @@ package ru.artemiyandarina.blps_lab1.enums;
 
 public enum Country {
     USA,
-    RUSSIAN,
+    RUSSIA,
     UK,
     GERMANY,
     FRANCE,
@@ -11,5 +11,14 @@ public enum Country {
     JAPAN,
     CHINA,
     INDIA,
-    BRAZIL
+    BRAZIL;
+
+    public static Country valueOfIgnoreCase(String countryName) {
+        for (Country country : values()) {
+            if (country.name().equalsIgnoreCase(countryName)) {
+                return country;
+            }
+        }
+        throw new IllegalArgumentException("No enum constant " + Country.class.getName() + " with name " + countryName);
+    }
 }

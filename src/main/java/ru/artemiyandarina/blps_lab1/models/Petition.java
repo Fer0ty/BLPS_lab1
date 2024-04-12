@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.artemiyandarina.blps_lab1.enums.Country;
+import ru.artemiyandarina.blps_lab1.enums.PetitionTopic;
 
 import java.sql.Timestamp;
 
@@ -26,6 +27,9 @@ public class Petition {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Country country;
+
+    @Enumerated(EnumType.STRING)
+    private PetitionTopic topic;
 
     @Column(nullable = false)
     private String title;

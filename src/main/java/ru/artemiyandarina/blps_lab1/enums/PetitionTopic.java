@@ -10,5 +10,14 @@ public enum PetitionTopic {
     ЭКОНОМИЧЕСКИЕ_РЕФОРМЫ,
     ТЕХНОЛОГИИ,
     ПОЛИТИКА,
-    РАЗВИТИЕ_СООБЩЕСТВА
+    РАЗВИТИЕ_СООБЩЕСТВА;
+
+    public static PetitionTopic valueOfIgnoreCase(String topicName) {
+        for (PetitionTopic topic : values()) {
+            if (topic.name().equalsIgnoreCase(topicName)) {
+                return topic;
+            }
+        }
+        throw new IllegalArgumentException("No enum constant " + PetitionTopic.class.getName() + " with name " + topicName);
+    }
 }

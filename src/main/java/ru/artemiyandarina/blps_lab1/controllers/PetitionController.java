@@ -69,4 +69,13 @@ public class PetitionController {
         return petitionService.getByCountry(country);
     }
 
+    @Operation(
+            summary = "Петиции по теме",
+            description = "Возвращает список петиций по указанной теме."
+    )
+    @GetMapping("/topic/{topic}")
+    public Set<PetitionRead> getByTopic(@PathVariable String topic) {
+        return petitionService.getByTopic(topic);
+    }
+
 }

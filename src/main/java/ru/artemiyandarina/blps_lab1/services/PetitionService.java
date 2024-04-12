@@ -51,4 +51,10 @@ public class PetitionService {
                 .collect(Collectors.toSet());
     }
 
+    public Set<PetitionRead> getByTopic(String topic) {
+        return petitionRepository.findByTopic(topic).stream()
+                .map(petitionMapper::mapEntityToPetitionRead)
+                .collect(Collectors.toSet());
+    }
+
 }

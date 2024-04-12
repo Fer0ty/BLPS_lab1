@@ -17,8 +17,8 @@ public class UserService {
         return userRepository.findById(userId).orElse(null);
     }
 
-    public UserData login(String login, String password) {
-        UserEntity user = userRepository.findByEmailAndPassword(login, password);
+    public UserData login(String email, String password) {
+        UserEntity user = userRepository.findByEmailAndPassword(email, password);
         if (user == null) {
             throw new IllegalArgumentException("invalid email or password");
         } else {

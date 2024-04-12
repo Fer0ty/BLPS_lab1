@@ -24,7 +24,7 @@ public class PetitionController {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Internal error while creating issue");
+            return ResponseEntity.badRequest().body("Internal error while creating petition");
         }
     }
 
@@ -36,7 +36,7 @@ public class PetitionController {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Internal error while deleting issue");
+            return ResponseEntity.badRequest().body("Internal error while deleting petition");
         }
     }
 
@@ -48,7 +48,7 @@ public class PetitionController {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Internal error while deleting issue");
+            return ResponseEntity.badRequest().body("Internal error while deleting petition");
         }
 
     }

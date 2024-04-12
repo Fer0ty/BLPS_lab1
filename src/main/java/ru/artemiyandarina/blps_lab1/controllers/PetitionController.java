@@ -54,4 +54,19 @@ public class PetitionController {
         return petitionService.getById(id);
     }
 
+    @Operation(
+            summary = "Удалить петицию",
+            description = "Удаляет петицию по её идентификатору."
+    )
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletePetition(@PathVariable Long id) {
+        petitionService.delete(id);
+    }
+
+    @GetMapping("/{country}")
+    public Set<PetitionRead> getByCountry(@PathVariable String country) {
+        return petitionService.getByCountry(country);
+    }
+
 }

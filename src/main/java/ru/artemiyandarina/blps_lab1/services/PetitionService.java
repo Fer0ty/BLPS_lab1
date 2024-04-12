@@ -44,4 +44,11 @@ public class PetitionService {
                 petition
         );
     }
+
+    public Set<PetitionRead> getByCountry(String country) {
+        return petitionRepository.findByCountry(country).stream()
+                .map(petitionMapper::mapEntityToPetitionRead)
+                .collect(Collectors.toSet());
+    }
+
 }

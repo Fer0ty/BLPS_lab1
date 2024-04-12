@@ -32,7 +32,7 @@ public class PetitionController {
     public ResponseEntity<String> deletePetitionById(@PathVariable Long id) {
         try {
             PetitionService.deletePetitionById(id);
-            return ResponseEntity.ok("Issue deleted successfully");
+            return ResponseEntity.ok("Petition deleted successfully");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {

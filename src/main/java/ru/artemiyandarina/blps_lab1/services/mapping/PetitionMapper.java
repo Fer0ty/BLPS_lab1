@@ -1,6 +1,7 @@
 package ru.artemiyandarina.blps_lab1.services.mapping;
 
 import org.springframework.stereotype.Service;
+import ru.artemiyandarina.blps_lab1.enums.Country;
 import ru.artemiyandarina.blps_lab1.models.Petition;
 import ru.artemiyandarina.blps_lab1.schemas.petition.PetitionBase;
 import ru.artemiyandarina.blps_lab1.schemas.petition.PetitionCreate;
@@ -14,7 +15,7 @@ public class PetitionMapper {
         entity.setTitle(schema.getTitle());
         entity.setDescription(schema.getDescription());
         entity.setCreationDate(new Timestamp(System.currentTimeMillis()));
-        entity.setCountry(schema.getCountry());
+        entity.setCountry(Country.valueOf(schema.getCountry()));
         return entity;
     }
 
@@ -32,7 +33,7 @@ public class PetitionMapper {
         schema.setTitle(entity.getTitle());
         schema.setDescription(entity.getDescription());
         schema.setCreationDate(entity.getCreationDate());
-        schema.setCountry(entity.getCountry());
+        schema.setCountry(entity.getCountry().toString());
         return schema;
     }
 

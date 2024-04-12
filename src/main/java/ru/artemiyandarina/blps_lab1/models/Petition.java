@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.artemiyandarina.blps_lab1.enums.Country;
 
 import java.sql.Timestamp;
 
@@ -22,8 +23,9 @@ public class Petition {
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp creationDate = new Timestamp(System.currentTimeMillis());
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String country;
+    private Country country;
 
     @Column(nullable = false)
     private String title;

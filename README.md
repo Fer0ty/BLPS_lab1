@@ -2,8 +2,9 @@ todo:
 
 получение всех петиций.
 
+Создание петиции
+
+Удаление петиции
+
 Получение петиций по ID автора
 
-searchPetitionByUserId
-
-SearchController

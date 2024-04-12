@@ -2,7 +2,7 @@ package ru.artemiyandarina.blps_lab1.enums;
 
 public enum Country {
     USA,
-    RUSSIAN,
+    RUSSIA,
     UK,
     GERMANY,
     FRANCE,

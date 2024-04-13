@@ -3,6 +3,7 @@ package ru.artemiyandarina.blps_lab1.services;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.artemiyandarina.blps_lab1.models.Petition;
+import ru.artemiyandarina.blps_lab1.models.User;
 import ru.artemiyandarina.blps_lab1.repositories.PetitionRepository;
 import ru.artemiyandarina.blps_lab1.repositories.UserRepository;
 import ru.artemiyandarina.blps_lab1.schemas.petition.PetitionCreate;
@@ -11,6 +12,7 @@ import ru.artemiyandarina.blps_lab1.schemas.user.UserRegister;
 import ru.artemiyandarina.blps_lab1.services.mapping.PetitionMapper;
 import ru.artemiyandarina.blps_lab1.exceptions.NotFoundException;
 
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
 public class PetitionService {
     final PetitionRepository petitionRepository;
     final PetitionMapper petitionMapper;
+    final UserRepository userRepository;
 
     public Set<PetitionRead> getAll() {
         return petitionRepository.findAll().stream()
@@ -28,7 +31,13 @@ public class PetitionService {
 
     public PetitionRead create(PetitionCreate schema) {
         Petition newPetition = petitionMapper.mapPetitionCreateToEntity(schema);
-        newPetition = petitionRepository.save(newPetition);
+        User checkUser = userRepository.findById(newPetition.getOwner().getId()).orElseThrow(NotFoundException::new);
+        if (checkUser.getEmail().equals(newPetition.getOwner().getEmail()) &&
+        checkUser.getPassword().equals(newPetition.getOwner().getPassword())){
+            newPetition = petitionRepository.save(newPetition);
+        } else {
+            throw new NotFoundException();
+        }
         return petitionMapper.mapEntityToPetitionRead(newPetition);
     }
 

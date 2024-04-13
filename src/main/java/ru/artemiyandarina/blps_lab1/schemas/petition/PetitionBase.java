@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import ru.artemiyandarina.blps_lab1.models.User;
 
 @Data
 public class PetitionBase {
@@ -14,8 +15,11 @@ public class PetitionBase {
     @Schema(example = "ААААААА ПОМОГИТЕ")
     @NotBlank
     private String description;
-    @Schema(example = "Russia")
+    @Schema(example = "RUSSIA")
     @NotBlank
     private String country;
+
+    @NotBlank
+    private User owner;
 }
 

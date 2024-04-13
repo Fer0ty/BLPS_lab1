@@ -24,9 +24,8 @@ public class Petition {
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp creationDate = new Timestamp(System.currentTimeMillis());
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Country country;
+    @Column(name = "country",nullable = false)
+    private String country;
 
     @Enumerated(EnumType.STRING)
     private PetitionTopic topic;
@@ -36,4 +35,8 @@ public class Petition {
 
     @Column(nullable = false)
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+    private User owner;
 }

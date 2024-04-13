@@ -15,7 +15,8 @@ public class PetitionMapper {
         entity.setTitle(schema.getTitle());
         entity.setDescription(schema.getDescription());
         entity.setCreationDate(new Timestamp(System.currentTimeMillis()));
-        entity.setCountry(Country.valueOf(schema.getCountry()));
+        entity.setCountry(schema.getCountry());
+        entity.setOwner(schema.getOwner());
         return entity;
     }
 
@@ -33,7 +34,7 @@ public class PetitionMapper {
         schema.setTitle(entity.getTitle());
         schema.setDescription(entity.getDescription());
         schema.setCreationDate(entity.getCreationDate());
-        schema.setCountry(entity.getCountry().toString());
+        schema.setCountry(entity.getCountry());
         return schema;
     }
 

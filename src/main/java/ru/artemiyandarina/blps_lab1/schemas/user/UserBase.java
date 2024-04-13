@@ -16,7 +16,7 @@ public class UserBase {
     @Schema(example = "Иванов")
     @NotBlank
     @Size(max = 30)
-    protected String LastName;
+    protected String lastName;
 
     @Schema(example = "sample@example.com")
     @NotBlank

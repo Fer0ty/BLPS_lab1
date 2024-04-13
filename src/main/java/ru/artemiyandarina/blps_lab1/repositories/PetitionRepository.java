@@ -12,5 +12,4 @@ public interface PetitionRepository extends JpaRepository<Petition, Long> {
 
     List<Petition> findByCountry(String country);
 
-    List<Petition> findByTopic(String topic);
 }

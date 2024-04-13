@@ -13,8 +13,7 @@ import ru.artemiyandarina.blps_lab1.services.PetitionService;
 import java.util.Set;
 
 @Tag(
-        name = "Петиция",
-        description = "Тут находятся описание методов для работы с петициями."
+        name = "Петиция"
 )
 @RestController
 @RequestMapping("/petition")
@@ -64,18 +63,12 @@ public class PetitionController {
         petitionService.delete(id);
     }
 
+    @Operation(
+            summary = "Фильтр по стране",
+            description = "Выводит список петиций по стране."
+    )
     @GetMapping("country/{country}")
     public Set<PetitionRead> getByCountry(@PathVariable String country) {
         return petitionService.getByCountry(country);
     }
-
-    @Operation(
-            summary = "Петиции по теме",
-            description = "Возвращает список петиций по указанной теме."
-    )
-    @GetMapping("/topic/{topic}")
-    public Set<PetitionRead> getByTopic(@PathVariable String topic) {
-        return petitionService.getByTopic(topic);
-    }
-
 }

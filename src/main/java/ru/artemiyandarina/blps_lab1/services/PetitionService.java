@@ -4,8 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.artemiyandarina.blps_lab1.models.Petition;
 import ru.artemiyandarina.blps_lab1.repositories.PetitionRepository;
+import ru.artemiyandarina.blps_lab1.repositories.UserRepository;
 import ru.artemiyandarina.blps_lab1.schemas.petition.PetitionCreate;
 import ru.artemiyandarina.blps_lab1.schemas.petition.PetitionRead;
+import ru.artemiyandarina.blps_lab1.schemas.user.UserRegister;
 import ru.artemiyandarina.blps_lab1.services.mapping.PetitionMapper;
 import ru.artemiyandarina.blps_lab1.exceptions.NotFoundException;
 
@@ -51,10 +53,10 @@ public class PetitionService {
                 .collect(Collectors.toSet());
     }
 
-    public Set<PetitionRead> getByTopic(String topic) {
-        return petitionRepository.findByTopic(topic).stream()
-                .map(petitionMapper::mapEntityToPetitionRead)
-                .collect(Collectors.toSet());
-    }
+//    public Set<PetitionRead> getByTopic(String topic) {
+//        return petitionRepository.findByTopic(topic).stream()
+//                .map(petitionMapper::mapEntityToPetitionRead)
+//                .collect(Collectors.toSet());
+//    }
 
 }
